@@ -1,7 +1,7 @@
 {
-  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "bg": "https://images8.alphacoders.com/108/thumb-1920-1081458.jpg",
+  "title": "Quiz Shingeki no Kyojin",
+  "description": "Teste os seus conhecimentos sobre aclamado anime Shingeki no Kyojin e vamos ver se você manja mesmo!",
   "questions": [
     {
       "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
@@ -31,8 +31,8 @@
   ],
   "theme": {
     "colors": {
-      "primary": "#273377",
-      "secondary": "#2a3eb1",
+      "primary": "#00544a",
+      "secondary": "#b24c00",
       "mainBg": "#41257b",
       "contrastText": "#FFFFFF",
       "wrong": "#e64a19",
