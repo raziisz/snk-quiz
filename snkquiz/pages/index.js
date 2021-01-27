@@ -1,11 +1,14 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import Head from 'next/head'
-import Widget from '../src/components/Widget'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
-import QuizLogo from '../src/components/QuizLogo'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import QuizBackground from '../src/components/QuizBackground';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizLogo from '../src/components/QuizLogo';
 
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
@@ -22,9 +25,11 @@ export const QuizContainer = styled.div`
     margin: auto;
     padding: 15px
   }
-`
+`;
 
-export default function Home () {
+export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState('');
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -37,21 +42,35 @@ export default function Home () {
             <h1>Shingeki on Kyojin</h1>
           </Widget.Header>
           <Widget.Content>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              router.push(`/quiz?name=${name}`);
+              console.log('Fazendo submissao por meio do react');
+            }}
+            >
+              <input
+                placeholder="Diz aí seu nome :)"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <button type="submit" disabled={!name}>
+                Jogar
+                {name}
+              </button>
 
-            <p>lorem impsum teste...</p>
+            </form>
           </Widget.Content>
         </Widget>
 
         <Widget>
           <Widget.Content>
-            <h1>Shingeki on Kyojin teste2</h1>
+            <h1>Quizes da Galera</h1>
 
             <p>lorem impsum teste...</p>
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl='https://github.com/raziisz' />
+      <GitHubCorner projectUrl="https://github.com/raziisz" />
     </QuizBackground>
-  )
+  );
 }
